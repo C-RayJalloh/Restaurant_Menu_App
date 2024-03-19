@@ -9,36 +9,39 @@ import CreateOrder from "./features/order/CreateOrder";
 
 function App() {
  // PAGES ROUTES
- const router = createBrowserRouter([{
-  // THE PARENT ROUTE OF ALL PAGES
-   element: <AppLayout />,
-   children: [
-    {
-      path: "/",
-      element: <Home />
-    },
-   
-  {
-    path: "/menu",
-    element: <Menu />,
-  },
+ const router = createBrowserRouter([
+   {
+     // THE PARENT ROUTE OF ALL PAGES
+     element: <AppLayout />,
+     // NESTED ROUTES
+     children: [
+       {
+         path: "/",
+         element: <Home />,
+       },
 
-  {
-    path: "/cart",
-    element: <Cart />,
-  },
+       {
+         path: "/menu",
+         element: <Menu />,
+       },
 
-  {
-    path: "/order/new",
-    element: <Order />,
-  },
+       {
+         path: "/cart",
+         element: <Cart />,
+       },
 
-  {
-    path: "/order/:id",
-    element: <CreateOrder />,
-  },
-   ],
- }])
+       {
+         path: "/order/new",
+         element: <Order />,
+       },
+
+       {
+         path: "/order/:id",
+         element: <CreateOrder />,
+       },
+     ],
+   },
+ ]);
 
   return (
     <RouterProvider router={router} />

@@ -2,11 +2,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 function MenuItem({ pizza }) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const { id, name, price, ingredients, soldOut, imgUrl } = pizza;
 
   return (
     <li>
-      <img src={imageUrl} alt={name} />
+      <img src={imgUrl} alt={name} />
       <div>
         <p>{name}</p>
         <p>{ingredients.join(', ')}</p>

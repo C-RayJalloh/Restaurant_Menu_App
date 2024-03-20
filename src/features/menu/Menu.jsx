@@ -1,19 +1,26 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-unused-vars */
 import { useLoaderData } from "react-router-dom";
-import { getMenu } from "../../apis/apiRestaurant";
-
+import { getMenu } from "../../apis/apiRestaurant.js";
+import MenuItem from "../menu/MenuItem.jsx";
 
 function Menu() {
-  const data = useLoaderData();
-  console.log(data); // Output the fetched data
+  const menu = useLoaderData();
+  console.log(menu);
 
-  return <h1>Menu</h1>;
+  return (
+    <ul>
+     {menu.map((pizza) => {
+    <MenuItem key={pizza.id} pizza={pizza} />
+     })}
+    </ul>
+  );
+}
+ 
+export async function loader() {
+  const data = await getMenu();
+  return data;
 }
 
-export function loader() {
-  const menu = getMenu();
-  return menu;
-}
 
 export default Menu;
+

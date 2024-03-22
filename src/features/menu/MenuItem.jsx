@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-function MenuItem({ pizza }) {
-  const { id, name, price, ingredients, soldOut, imgUrl } = pizza;
+function MenuItem({ menuData }) {
+  const { id, name, price, ingredients, soldOut, imgUrl } = menuData;
 
   return (
-    <li>
+    <li >
       <img src={imgUrl} alt={name} />
       <div>
         <p>{name}</p>
-        <p>{ingredients.join(', ')}</p>
+        <p>{ingredients}</p>
         <div>
-          {!soldOut ? <p>{formatCurrency(unitPrice)}</p> : <p>Sold out</p>}
+          {!soldOut ? <p>{price}</p> : <p>Sold out</p>}
         </div>
       </div>
     </li>

@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-function MenuItem({ menuData }) {
-  const { id, name, price, ingredients, soldOut, imgUrl } = menuData;
+function MenuItem({ menu }) {
+  const { id, name, price, ingredients, soldOut, imgUrl } = menu;
 
   return (
     <li >

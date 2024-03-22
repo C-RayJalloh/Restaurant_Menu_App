@@ -12,21 +12,23 @@ const [ menuData, setmenuData] = useState("Testing")
   
 useEffect(() => {
   async function fetchData() {
-    const res = await fetch('/api/data'); // Fetch data from the API
-    const data = await res.json(); // Extract JSON from the response
+    const res = await fetch(' https://react-fast-pizza-api.onrender.com/api/menu'); // Fetch data from the API
+    const {data} = await res.json(); // Extract JSON from the response
     console.log(data); // Log the data to the console
+    setmenuData(data)
   }
   
   fetchData(); // Call the fetchData function
 }, []); // Empty dependency array means this effect runs once, on component mount
 
  
-  return (
-    <ul>
-     <li>{menuData}</li>
-
-    </ul>
-  );
+return (
+  <ul>
+    {menuData.map((menu) => (
+      <MenuItem key={menu.id} menu={menu} />
+    ))}
+  </ul>
+);
 }
  
 // // an HTTP/REST API

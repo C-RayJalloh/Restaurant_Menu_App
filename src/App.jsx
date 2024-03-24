@@ -17,7 +17,7 @@ function App() {
      // NESTED ROUTES
      children: [
        {
-         path: "/",
+         path: "/home",
          element: <Home />,
        },
 

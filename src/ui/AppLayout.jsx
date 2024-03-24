@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./Header";
 import CartOverview from "../features/cart/CartOverview";
 import Loading from "./Loading";
 
 // THE PARENT ROUTE
 function AppLayout() {
-  const navigate = useNavigate();
-  const isLoading = navigate === "loading";
+  const navigate = useNavigation();
+ 
   return (
     <div className="layout">
-      {isLoading && <Loading />}
+   
 
       {/* LAYOUT */}
       <Header />

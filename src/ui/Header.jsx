@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function Header() {
     return (
         <header>
-          <Link to="/"> Resto App</Link>
+          <Link to="/home"> Resto App</Link>
         </header>
     )
 }

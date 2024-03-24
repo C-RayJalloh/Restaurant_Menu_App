@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import AppLayout from "./ui/AppLayout";
+import Error from "./utils/Error";
 import Menu, { fetchMenu } from "./features/menu/Menu";
 import Home from "./utils/Home";
 import Cart from "./features/cart/Cart";
@@ -14,6 +15,7 @@ function App() {
    {
      // THE PARENT ROUTE OF ALL PAGES
      element: <AppLayout />,
+     errorElement: <Error />,
      // NESTED ROUTES
      children: [
        {

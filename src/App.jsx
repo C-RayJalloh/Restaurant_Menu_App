@@ -15,7 +15,9 @@ function App() {
    {
      // THE PARENT ROUTE OF ALL PAGES
      element: <AppLayout />,
+     // ERROR ELEMENT
      errorElement: <Error />,
+
      // NESTED ROUTES
      children: [
        {
@@ -27,6 +29,7 @@ function App() {
          path: "/menu",
          element: <Menu />,
          loader: fetchMenu,
+         errorElement: <Error />,
        },
 
        {

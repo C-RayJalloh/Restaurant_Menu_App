@@ -7,10 +7,10 @@ import Loading from "./Loading";
 // THE PARENT ROUTE
 function AppLayout() {
   const navigate = useNavigation();
- 
+  const isLoading = navigate.state === "loading"
   return (
     <div className="layout">
-   
+    {isLoading && <Loading />}
 
       {/* LAYOUT */}
       <Header />

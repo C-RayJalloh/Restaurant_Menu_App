@@ -4,7 +4,7 @@ import Error from "./utils/Error";
 import Menu, { fetchMenu } from "./features/menu/Menu";
 import Home from "./utils/Home";
 import Cart from "./features/cart/Cart";
-import Order from "./features/order/CreateOrder";
+import Order from "./features/order/Order";
 import CreateOrder from "./features/order/CreateOrder";
 
 
@@ -39,12 +39,12 @@ function App() {
 
        {
          path: "/order/new",
-         element: <Order />,
+         element: <CreateOrder />,
        },
 
        {
          path: "/order/:id",
-         element: <CreateOrder />,
+         element: <Order />,
        },
      ],
    },

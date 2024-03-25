@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
-import formatCurreny from '../../utils/helpers'
+import  { formatCurrency } from '../../utils/helpers'
 function MenuItem({ menu }) {
   const { id, name, price, ingredients, soldOut, imgUrl } = menu;
-
+  const formatedCurrency = formatCurrency(value);
   return (
     <li >
       <img src={imgUrl} alt={name} />
@@ -13,7 +13,7 @@ function MenuItem({ menu }) {
         {/** TODO: WORK ON THE COMMAS LATER */}
         <p>{ingredients}</p>
         <div>
-          {!soldOut ? <p>{formatCurreny(price)}</p> : <p>Sold out</p>}
+          {!soldOut ? <p>{formatedCurrency(price)}</p> : <p>Sold out</p>}
         </div>
       </div>
     </li>

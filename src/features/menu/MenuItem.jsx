@@ -4,7 +4,7 @@
 import  { formatCurrency } from '../../utils/helpers'
 function MenuItem({ menu }) {
   const { id, name, price, ingredients, soldOut, imgUrl } = menu;
-  const formatedCurrency = formatCurrency(value);
+  // const formatedCurrency = formatCurrency(value);
   return (
     <li >
       <img src={imgUrl} alt={name} />
@@ -13,7 +13,7 @@ function MenuItem({ menu }) {
         {/** TODO: WORK ON THE COMMAS LATER */}
         <p>{ingredients}</p>
         <div>
-          {!soldOut ? <p>{formatedCurrency(price)}</p> : <p>Sold out</p>}
+          {!soldOut ? <p>{formatCurrency(price)}</p> : <p>Sold out</p>}
         </div>
       </div>
     </li>

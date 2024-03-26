@@ -28,8 +28,8 @@ function Menu() {
 
 return (
   <ul>
-    {menuData.map((menu, index) => (
-      <MenuItem key={index} menu={menu} />
+    {menuData.map((menu) => (
+      <MenuItem key={menu.id} menu={menu} />
 ))}
   </ul>
 );

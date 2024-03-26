@@ -5,7 +5,7 @@ import Menu, { fetchMenu } from "./features/menu/Menu";
 import Home from "./utils/Home";
 import Cart from "./features/cart/Cart";
 import Order, { getOrderLoader} from "./features/order/Order";
-import CreateOrder from "./features/order/CreateOrder";
+import CreateOrder, { createOrderAction } from "./features/order/CreateOrder";
 
 
 
@@ -40,6 +40,7 @@ function App() {
        {
          path: "/order/new",
          element: <CreateOrder />,
+         action: createOrderAction,
        },
 
        {

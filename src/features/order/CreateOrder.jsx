@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
@@ -79,5 +80,15 @@ function CreateOrder() {
     </div>
   );
 }
+
+// ACTION FORM 
+export async function createOrderAction({request}){
+   const formData = await request.formData;
+   const data = Object.fromEntries(formData);
+   console.log(data);
+
+   return null;
+}
+
 
 export default CreateOrder;

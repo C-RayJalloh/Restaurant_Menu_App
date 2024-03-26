@@ -1,5 +1,6 @@
 
 
+
 const API_URL = '/api';
 
 export async function getMenu() {

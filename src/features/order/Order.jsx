@@ -94,7 +94,6 @@ function Order() {
 export async function getOrderLoader({ params }) {
  // Extract the id from the params object
   const order = await getOrder(params.orderId);
-  console.log(order);
   return order; // Return the fetched order
 }
 

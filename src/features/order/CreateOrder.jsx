@@ -2,7 +2,8 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
+import { createOrder } from "../../apis/apiRestaurant";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -35,6 +36,7 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
+  const formErrors = useActionData();
   // const [withPriority, setWithPriority] = useState(false);
   const cart = fakeCart;
 
@@ -42,7 +44,7 @@ function CreateOrder() {
     <div>
       <h2>Ready to order? Let's go!</h2>
 
-      <Form method="POST">
+      <Form method="POST" action="/order">
         <div>
           <label>First Name</label>
           <input type="text" name="customer" required />
@@ -53,6 +55,11 @@ function CreateOrder() {
           <div>
             <input type="tel" name="phone" required />
           </div>
+          {formErrors?.phone && (
+              <p>
+                {formErrors.phone}
+              </p>
+            )}
         </div>
 
         <div>
@@ -74,6 +81,7 @@ function CreateOrder() {
         </div>
 
         <div>
+          <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <button>Order now</button>
         </div>
       </Form>
@@ -83,11 +91,30 @@ function CreateOrder() {
 
 // ACTION FORM 
 export async function createOrderAction({request}){
-   const formData = await request.formData;
+   const formData = await request.formData();
    const data = Object.fromEntries(formData);
-   console.log(data);
 
-   return null;
+   
+   const order ={
+    ...data, 
+    cart: JSON.parse(data.cart),
+    priority: data.priority === "true",
+   };
+
+   console.log(order);
+
+
+   const errors = {};
+   if (!isValidPhone(order.phone))
+     errors.phone =
+       'Please give us your correct phone number. We might need it to contact you.';
+ 
+   if (Object.keys(errors).length > 0) return errors;
+ 
+   // If everything is okay, create new order and redirect
+   const newOrder  = await createOrder(order);
+  
+   return redirect(`/order/${newOrder._id}`)
 }
 
 

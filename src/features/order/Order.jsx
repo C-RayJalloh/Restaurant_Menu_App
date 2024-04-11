@@ -26,6 +26,8 @@ function Order() {
   } = order;
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
+  console.log("Estimated Delivery before formatting:", estimatedDelivery);
+
   return (
     <div>
       <div>

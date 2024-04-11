@@ -36,10 +36,10 @@ return (
 }
  
 // FETCHING THE API WITH THE REACT ROUTER LOADER
-export async function fetchMenu () {
-     const menuData   = await getMenu();
-   return menuData;
-}
+// export async function fetchMenu () {
+//      const menuData   = await getMenu();
+//    return menuData;
+// }
 
 
 

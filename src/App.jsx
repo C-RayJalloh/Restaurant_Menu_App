@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import AppLayout from "./ui/AppLayout";
 import Error from "./utils/Error";
-import Menu, { fetchMenu } from "./features/menu/Menu";
+import Menu from "./features/menu/Menu";
 import Home from "./utils/Home";
 import Cart from "./features/cart/Cart";
 import Order, { getOrderLoader} from "./features/order/Order";
@@ -26,9 +26,9 @@ function App() {
        },
 
        {
-         path: "/menu",
+         path: "/menuData",
          element: <Menu />,
-         loader: fetchMenu,
+        
          errorElement: <Error />,
        },
 
@@ -38,7 +38,7 @@ function App() {
        },
 
        {
-         path: "/order/new",
+         path: "/order",
          element: <CreateOrder />,
          action: createOrderAction,
        },
